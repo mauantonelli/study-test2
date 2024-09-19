@@ -10,14 +10,31 @@ public class Compra {
     private double valorPagar;
     private List<ItemCompra> compras = new ArrayList<>();
     private Cliente cliente;
+    private Vendedor vendedor;
 
-    public Compra(Cliente cliente, String numeroCompra, LocalDate dataCompra) {
+    public Compra(Cliente cliente, Vendedor vendedor, String numeroCompra, LocalDate dataCompra) {
         this.cliente = cliente;
         this.numeroCompra = numeroCompra;
         this.dataCompra = dataCompra;
-        cliente.getCompras().add(this); // Adiciona a compra no histórico do cliente
+        cliente.getCompras().add(this);
+
     }
 
+    public List<ItemCompra> getItens() {
+        return compras;
+    }
+
+    public Compra(Vendedor vendedor, String numeroCompra, LocalDate dataCompra) {
+        this.vendedor = vendedor;
+    }
+
+    public Vendedor getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
+    }
 
     public String getNumeroCompra() {
         return numeroCompra;
