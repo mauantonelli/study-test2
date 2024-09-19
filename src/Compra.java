@@ -11,14 +11,13 @@ public class Compra {
     private List<ItemCompra> compras = new ArrayList<>();
     private Cliente cliente;
 
-    public Compra(Cliente cliente) {
+    public Compra(Cliente cliente, String numeroCompra, LocalDate dataCompra) {
         this.cliente = cliente;
-    }
-
-    public Compra(String numeroCompra, LocalDate dataCompra) {
         this.numeroCompra = numeroCompra;
         this.dataCompra = dataCompra;
+        cliente.getCompras().add(this); // Adiciona a compra no histórico do cliente
     }
+
 
     public String getNumeroCompra() {
         return numeroCompra;
@@ -52,20 +51,22 @@ public class Compra {
         this.cliente = cliente;
     }
 
-    public double calcularValorTotalCompra(){
-        double valorTotalCompra = 0;
-        double valorDesconto = 0;
-        double valorPagar = 0;
+    public double calcularValorTotalCompra() {
+        valorTotalCompra = 0;
 
-        valorDesconto = valorTotalCompra - 0.05*valorTotalCompra;
+        for (ItemCompra item : compras) {
+            valorTotalCompra += item.calcularValorTotal();
+        }
 
-        for(ItemCompra compra: compras){
-            if(valorTotalCompra > 1000){
-                valorPagar = valorTotalCompra - valorDesconto;
-            }
-    }
+        if (valorTotalCompra > 1000) {
+            valorDesconto = valorTotalCompra * 0.05;
+            valorPagar = valorTotalCompra - valorDesconto;
+        } else {
+            valorPagar = valorTotalCompra;
+        }
 
         return valorPagar;
-}
+    }
+
 
 }

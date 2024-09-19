@@ -18,7 +18,16 @@ public class Cliente extends Pessoa {
         this.telefone = telefone;
     }
 
-    public void exibirHistoricoCompras(){
-        System.out.println();
+    public List<Compra> getCompras() {
+        return compras;
     }
+
+    public void exibirHistoricoCompras() {
+        for (Compra compra : compras) {
+            System.out.println("Compra nº: " + compra.getNumeroCompra() +
+                    " | Data: " + compra.getDataCompra() +
+                    " | Total: R$" + compra.calcularValorTotalCompra());
+        }
+    }
+
 }

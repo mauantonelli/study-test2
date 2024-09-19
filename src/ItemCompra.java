@@ -36,15 +36,10 @@ public class ItemCompra {
         this.produto = produto;
     }
 
-    public double calcularValorTotal(){
-        List<Compra> compras = new ArrayList<>();
-        double valorTotal = 0;
-
-        for(Compra compra: compras){
-            System.out.println(this.getValorTotal());
-
+        public double calcularValorTotal() {
+            this.valorTotal = produto.getPrecoUnitario() * quantidadeComprada;
+            return valorTotal;
         }
-        return valorTotal;
 
-    }
+
 }
