@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class ItemCompra {
     private int quantidadeComprada;
     private double valorTotal;
@@ -33,8 +36,15 @@ public class ItemCompra {
         this.produto = produto;
     }
 
-    public void calcularValorTotal(){
+    public double calcularValorTotal(){
+        List<Compra> compras = new ArrayList<>();
+        double valorTotal = 0;
 
+        for(Compra compra: compras){
+            System.out.println(this.getValorTotal());
+
+        }
+        return valorTotal;
 
     }
 }
