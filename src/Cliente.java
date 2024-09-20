@@ -22,6 +22,10 @@ public class Cliente extends Pessoa {
         return compras;
     }
 
+    public void inserirCompras(Compra itemCompra){
+        this.compras.add(itemCompra);
+    }
+
     public void exibirHistoricoCompras() {
         for (Compra compra : compras) {
             System.out.println("Compra nº: " + compra.getNumeroCompra() +

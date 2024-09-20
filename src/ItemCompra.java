@@ -6,10 +6,10 @@ public class ItemCompra {
     private double valorTotal;
     private Produto produto;
 
-    public ItemCompra(int quantidadeComprada, double valorTotal, Produto produto) {
-        this.quantidadeComprada = quantidadeComprada;
-        this.valorTotal = valorTotal;
+    public ItemCompra(Produto produto, int quantidadeComprada) {
         this.produto = produto;
+        this.quantidadeComprada = quantidadeComprada;
+        calcularValorTotal();
     }
 
     public int getQuantidadeComprada() {
