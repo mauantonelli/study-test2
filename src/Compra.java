@@ -82,7 +82,7 @@ public class Compra {
             valorPagar = valorTotalCompra;
         }
 
-        return valorPagar;
+        return valorTotalCompra;
     }
 
 
